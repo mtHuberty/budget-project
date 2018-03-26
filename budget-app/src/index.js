@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExpendituresList from './expenditures-list';
+import BudgetPage from './budget-page';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<ExpendituresList />, document.getElementById('root'));
+ReactDOM.render(<BudgetPage />, document.getElementById('root'));

@@ -1,0 +1,25 @@
+.main {
+    justify-content: center;
+}
+
+.button {
+    transition: all 1s;
+    outline: none;
+    user-select: none;
+    border: 1.5px solid grey;
+    background: palegreen;
+    border-radius: 15%;
+    display: inline-block;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+#expenditureText {
+    width: 60%;
+}
+
+#expenditureCost {
+    width: 10%;
+}
