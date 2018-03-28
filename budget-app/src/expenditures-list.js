@@ -6,7 +6,13 @@ class ExpendituresList extends Component {
     render() {
         let expenditureNodes = this.props.data.map(expenditure => {
             return (
-                <Expenditure cost={ expenditure.cost } cost={ expenditure.text } key={ expenditure.id } />
+                <Expenditure
+                    cost={ expenditure.cost }
+                    cost={ expenditure.text }
+                    key={ expenditure._id }
+                    uniqueID={ expenditure._id }
+                    onExpenditureDelete={ this.props.onExpenditureDelete }
+                />
             )
         });
 

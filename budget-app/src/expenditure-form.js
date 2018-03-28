@@ -20,16 +20,22 @@ class ExpenditureForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(`${this.state.text} cost ${this.state.cost}`);
-        // Tie this into a POST request later
+        let text = this.state.text.trim();
+        let cost = this.state.cost.trim();
+        if (!text || !cost) {
+            return;
+        }
+        this.props.onExpenditureAdd({ text: text, cost: cost });
         this.setState({ text: '' });
         this.setState({ cost: '' });
+        this.firstField.focus();
     }
 
     render() {
         return (
             <form onSubmit={ this.handleSubmit }>
                 <input
+                    ref={(input) => { this.firstField = input; }}
                     id='expenditureText'
                     type='text'
                     placeholder='Type something'

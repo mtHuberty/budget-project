@@ -39,24 +39,49 @@ router.get('/', function(req, res) {
 
 // Adding expenditures route
 router.route('/expenditures')
-    .get(function (req, res) {
-        Expenditure.find(function (err, expenditures) {
-            if (err) {
+    .get(function(req, res) {
+        Expenditure.find(function(err, expenditures) {
+            if(err) {
                 res.send(err)
             }
             res.json(expenditures)
         })
     })
-    .post(function (req, res) {
+    .post(function(req, res) {
         let expenditure = new Expenditure();
         // Body-parser gives us access to the req.body
         expenditure.text = req.body.text;
         expenditure.cost = req.body.cost;
-        expenditure.save(function (err) {
-            if (err) {
+        expenditure.save(function(err) {
+            if(err) {
                 res.send(err)
             }
             res.json({ message: 'Expenditure successfully added.'})
+        })
+    })
+
+router.route('/expenditures/:expenditure_id')
+    .put(function(req, res) {
+        Expenditure.findById(req.params.expenditure_id, function(err, expenditure) {
+            if(err) {
+                res.send(err);
+            }
+            (req.body.text) ? expenditure.text = req.body.text : null;
+            (req.body.cost) ? expenditure.cost = req.body.cost : null;
+            expenditure.save(function(err) {
+                if(err) {
+                    res.send(err);
+                }
+                res.json({ message: 'Expenditure has been updated.' })
+            })
+        })
+    })
+    .delete(function (req, res) {
+        Expenditure.remove({ _id: req.params.expenditure_id }, function(err, expenditure) {
+            if(err) {
+                res.send(err);
+            }
+            res.json({ message: 'Expenditure has been deleted.'})
         })
     })
 
