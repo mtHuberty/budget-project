@@ -4,7 +4,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const Expenditure = require('./models/expenditure')
+const Expenditure = require('./models/expenditure-model')
 
 // Create Instances
 const app = express()
