@@ -16,6 +16,14 @@
     cursor: pointer;
 }
 
+.delete {
+    float: right;
+}
+
+.expenditureItem:hover {
+    background: orange;
+}
+
 #expenditureText {
     width: 60%;
 }
@@ -23,3 +31,4 @@
 #expenditureCost {
     width: 10%;
 }
+

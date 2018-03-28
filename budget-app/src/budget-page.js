@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ExpendituresList from './expenditures-list';
 import ExpenditureForm from './expenditure-form';
+import BudgetList from './budget-list';
 import './styles.css';
-import { Jumbotron, Row } from 'reactstrap';
+import { Jumbotron, Row, Col } from 'reactstrap';
 
 class BudgetPage extends Component {
     constructor(props) {
@@ -63,9 +64,12 @@ class BudgetPage extends Component {
     render() {
         return (
             <div className='jumbotron main row'>
+                <div className=''>
+                    <BudgetList />
+                </div>
                 <div className='col-md-4'>
                     <h1>Budget Page</h1>
-                    <ExpenditureForm onExpenditureAdd={ this.handleExpenditureAdd }/>
+                    <ExpenditureForm onExpenditureAdd={ this.handleExpenditureAdd } />
                     <ExpendituresList data={ this.state.data } onExpenditureDelete={ this.handleExpenditureDelete } />
                 </div>
             </div>

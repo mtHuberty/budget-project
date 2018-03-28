@@ -15,13 +15,9 @@ class Expenditure extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <span>{ this.props.text }</span><span>{ this.props.cost }</span>
-                </div>
-                <div>
-                    <a href='#' onClick={ this.handleExpenditureDelete }>Delete</a>
-                </div>
+            <div className='expenditureItem'>
+                <span>{ this.props.text }</span><span>{ this.props.cost }</span>
+                <a className='delete' href='#' onClick={ this.handleExpenditureDelete }>Delete</a>                    
             </div>
         )
     }
