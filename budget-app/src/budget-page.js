@@ -27,8 +27,14 @@ class BudgetPage extends Component {
         let newExpenditures = expenditures.concat([expenditure]);
         this.setState({ data: newExpenditures });
         axios.post(this.props.url, expenditure)
+        .then(function(res) {
+            if(res instanceof Error) {
+                console.error(res);
+            }
+        })
         .catch(err => {
             console.error(err);
+            console.log('Axios.post error!')
             this.setState({ data: expenditures });
         })
     }

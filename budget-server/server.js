@@ -54,7 +54,9 @@ router.route('/expenditures')
         expenditure.cost = req.body.cost;
         expenditure.save(function(err) {
             if(err) {
-                res.send(err)
+                console.error(err);
+                res.send(err);
+                return new Error(err);
             }
             res.json({ message: 'Expenditure successfully added.'})
         })
