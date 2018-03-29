@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ExpendituresList from './expenditures-list';
 import ExpenditureForm from './expenditure-form';
-import BudgetList from './budget-list';
+import CategoryList from './category-list';
 import './styles.css';
 import { Jumbotron, Row, Col } from 'reactstrap';
 
@@ -63,14 +63,17 @@ class BudgetPage extends Component {
 
     render() {
         return (
-            <div className='jumbotron main row'>
-                <div className=''>
-                    <BudgetList />
+            <div className='jumbotron row'>
+                <div className='col-md-4 center'>
+                    <CategoryList />
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4 center'>
                     <h1>Budget Page</h1>
                     <ExpenditureForm onExpenditureAdd={ this.handleExpenditureAdd } />
                     <ExpendituresList data={ this.state.data } onExpenditureDelete={ this.handleExpenditureDelete } />
+                </div>
+                <div className='col-md-4 center'>
+                    Test
                 </div>
             </div>
         )
