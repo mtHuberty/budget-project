@@ -5,6 +5,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const Expenditure = require('./models/expenditure-model')
+const Category = require('./models/category-model')
 
 // Create Instances
 const app = express()
@@ -84,6 +85,29 @@ router.route('/expenditures/:expenditure_id')
                 res.send(err);
             }
             res.json({ message: 'Expenditure has been deleted.'})
+        })
+    })
+
+// Adding categories route
+router.route('/categories')
+    .get(function(req, res) {
+        Category.find(function(err, categories) {
+            if(err) {
+                res.send(err);
+            }
+            res.json(categories);
+        })
+    })
+    .post(function(req, res) {
+        let category = new Category();
+        category.name = req.body.name;
+        category.budget = req.body.budget;
+        category.save(function(err) {
+            if(err) {
+                console.log(`Ruh roh, that's an error: ${err}`);
+                return new Error(err);
+            }
+            res.json({ message: 'Category successfully added'});
         })
     })
 

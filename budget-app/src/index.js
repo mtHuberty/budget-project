@@ -4,6 +4,7 @@ import BudgetPage from './budget-page';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(<BudgetPage
-                url='http://localhost:3001/api/expenditures'
+                expUrl='http://localhost:3001/api/expenditures'
+                catUrl='http://localhost:3001/api/categories'
                 pollInterval={2000}
                 />, document.getElementById('root'));

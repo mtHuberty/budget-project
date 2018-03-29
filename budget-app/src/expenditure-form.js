@@ -40,7 +40,7 @@ class ExpenditureForm extends Component {
                     type='text'
                     placeholder='Type something'
                     value={ this.state.text }
-                    onChange={ this.handleTextChange}
+                    onChange={ this.handleTextChange }
                 />
                 <input 
                     id='expenditureCost'

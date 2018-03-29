@@ -26,7 +26,9 @@ class CategoryList extends Component {
 
         return (
             <table className='center'>
-                { categoryNodes }
+                <tbody>
+                    { categoryNodes }
+                </tbody>
             </table>
         )
     }
